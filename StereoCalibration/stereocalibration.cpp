@@ -9,7 +9,7 @@ StereoCalibration::StereoCalibration(QWidget *parent): QMainWindow(parent)
 
 StereoCalibration::~StereoCalibration()
 {
-
+	this->saveParameters();
 }
 
 void StereoCalibration::displayFrame(int indice){
@@ -50,6 +50,21 @@ void StereoCalibration::onPushButtonLoadImagesClicked(){
 		//Affichage de la premiere image à l'écran
 		displayFrame(0);
 	}
+}
+
+void StereoCalibration::readParameters(){
+
+}
+
+void StereoCalibration::saveParameters(){
+	QString dataToSave = "";
+
+	//Enregistrement des chemins des fichiers
+	Xml xml("StereoCalibration");
+
+	xml.openBalise("firstVecotr");
+
+	xml.closeBalise();
 }
 
 

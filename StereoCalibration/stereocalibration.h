@@ -4,6 +4,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_stereocalibration.h"
 #include "FileManager.h"
+#include "Xml.h"
 
 #include <opencv2\opencv.hpp>
 
@@ -17,8 +18,10 @@ class StereoCalibration : public QMainWindow
 public:
 	StereoCalibration(QWidget *parent = 0);
 	~StereoCalibration();
-
 	void displayFrame(int indice);
+	void readParameters();
+	void saveParameters();
+	
 
 public slots:
 	void onPushButtonLoadImagesClicked();
