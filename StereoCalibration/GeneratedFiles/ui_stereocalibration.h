@@ -38,7 +38,6 @@ public:
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
     QCheckBox *checkBoxComputeIntrinsicsParameters;
-    QCheckBox *checkBoxSelectPoints;
     QLabel *label;
     QPushButton *pushButtonLoadImages;
     QPushButton *pushButtonStartCalibration;
@@ -51,6 +50,8 @@ public:
     QLabel *sizeOfSquareMmLabel;
     QLineEdit *sizeOfSquareMmLineEdit;
     QLabel *label_2;
+    QPushButton *pushButtonPointsDetection;
+    QPushButton *pushButtonIntrinsicsParameters;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -68,13 +69,13 @@ public:
         displayLabel->setAutoFillBackground(true);
         pushButtonNextFrame = new QPushButton(centralWidget);
         pushButtonNextFrame->setObjectName(QStringLiteral("pushButtonNextFrame"));
-        pushButtonNextFrame->setGeometry(QRect(760, 480, 171, 71));
+        pushButtonNextFrame->setGeometry(QRect(750, 410, 171, 71));
         textBrowserLog = new QTextBrowser(centralWidget);
         textBrowserLog->setObjectName(QStringLiteral("textBrowserLog"));
         textBrowserLog->setGeometry(QRect(80, 610, 521, 192));
         formLayoutWidget = new QWidget(centralWidget);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(679, 130, 334, 81));
+        formLayoutWidget->setGeometry(QRect(679, 550, 334, 81));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setSpacing(6);
         formLayout->setContentsMargins(11, 11, 11, 11);
@@ -85,23 +86,18 @@ public:
 
         formLayout->setWidget(0, QFormLayout::LabelRole, checkBoxComputeIntrinsicsParameters);
 
-        checkBoxSelectPoints = new QCheckBox(formLayoutWidget);
-        checkBoxSelectPoints->setObjectName(QStringLiteral("checkBoxSelectPoints"));
-
-        formLayout->setWidget(1, QFormLayout::LabelRole, checkBoxSelectPoints);
-
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(680, 100, 201, 31));
+        label->setGeometry(QRect(680, 520, 201, 31));
         pushButtonLoadImages = new QPushButton(centralWidget);
         pushButtonLoadImages->setObjectName(QStringLiteral("pushButtonLoadImages"));
-        pushButtonLoadImages->setGeometry(QRect(760, 580, 171, 71));
+        pushButtonLoadImages->setGeometry(QRect(750, 20, 171, 71));
         pushButtonStartCalibration = new QPushButton(centralWidget);
         pushButtonStartCalibration->setObjectName(QStringLiteral("pushButtonStartCalibration"));
-        pushButtonStartCalibration->setGeometry(QRect(760, 680, 171, 71));
+        pushButtonStartCalibration->setGeometry(QRect(760, 750, 171, 71));
         formLayoutWidget_2 = new QWidget(centralWidget);
         formLayoutWidget_2->setObjectName(QStringLiteral("formLayoutWidget_2"));
-        formLayoutWidget_2->setGeometry(QRect(680, 269, 331, 101));
+        formLayoutWidget_2->setGeometry(QRect(680, 149, 331, 101));
         formLayout_3 = new QFormLayout(formLayoutWidget_2);
         formLayout_3->setSpacing(6);
         formLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -139,7 +135,13 @@ public:
 
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(680, 240, 201, 31));
+        label_2->setGeometry(QRect(680, 120, 201, 31));
+        pushButtonPointsDetection = new QPushButton(centralWidget);
+        pushButtonPointsDetection->setObjectName(QStringLiteral("pushButtonPointsDetection"));
+        pushButtonPointsDetection->setGeometry(QRect(750, 300, 171, 71));
+        pushButtonIntrinsicsParameters = new QPushButton(centralWidget);
+        pushButtonIntrinsicsParameters->setObjectName(QStringLiteral("pushButtonIntrinsicsParameters"));
+        pushButtonIntrinsicsParameters->setGeometry(QRect(760, 650, 171, 71));
         StereoCalibrationClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(StereoCalibrationClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -163,7 +165,6 @@ public:
         displayLabel->setText(QString());
         pushButtonNextFrame->setText(QApplication::translate("StereoCalibrationClass", "Next Frame", 0));
         checkBoxComputeIntrinsicsParameters->setText(QApplication::translate("StereoCalibrationClass", "Compute intrinsics parameters", 0));
-        checkBoxSelectPoints->setText(QApplication::translate("StereoCalibrationClass", "Select Points", 0));
         label->setText(QApplication::translate("StereoCalibrationClass", "Stereo calibration option", 0));
         pushButtonLoadImages->setText(QApplication::translate("StereoCalibrationClass", "Load images", 0));
         pushButtonStartCalibration->setText(QApplication::translate("StereoCalibrationClass", "Start calibration", 0));
@@ -171,6 +172,8 @@ public:
         numberOfColumnsLabel->setText(QApplication::translate("StereoCalibrationClass", "Number of columns", 0));
         sizeOfSquareMmLabel->setText(QApplication::translate("StereoCalibrationClass", "Size of square (mm)", 0));
         label_2->setText(QApplication::translate("StereoCalibrationClass", "Pattern settings", 0));
+        pushButtonPointsDetection->setText(QApplication::translate("StereoCalibrationClass", "Points detection auto", 0));
+        pushButtonIntrinsicsParameters->setText(QApplication::translate("StereoCalibrationClass", "Intrinsics parameters", 0));
     } // retranslateUi
 
 };

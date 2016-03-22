@@ -6,10 +6,8 @@
 #include <vector>
 #include <qdiriterator.h>
 
-#include <opencv2\opencv.hpp>
 
 using namespace std;
-using namespace cv;
 
 #pragma once
 class FileManager
@@ -17,7 +15,7 @@ class FileManager
 public:
 	FileManager();
 	~FileManager();
-	vector<vector<Mat>> loadStereoImages();
+	vector<vector<QString>> loadStereoImages();
 };
 
 #endif FILEMANAGER_H

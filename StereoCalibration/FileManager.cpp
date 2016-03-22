@@ -10,8 +10,8 @@ FileManager::~FileManager()
 {
 }
 
-vector<vector<Mat>> FileManager::loadStereoImages(){
-	vector<vector<Mat>> vecToReturn;
+vector<vector<QString>> FileManager::loadStereoImages(){
+	vector<vector<QString>> vecToReturn;
 
 	//Chargement du répertoire contenant les images
 	QString name = QFileDialog::getExistingDirectory(0, QObject::tr("Open Directory"), "/", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
@@ -19,8 +19,8 @@ vector<vector<Mat>> FileManager::loadStereoImages(){
 	QDir directory = QDir(name);
 
 	if (directory.exists()){
-		vector<Mat> colorVector;
-		vector<Mat> infraredVector;
+		vector<QString> colorVector;
+		vector<QString> infraredVector;
 
 		QDirIterator dirIte(directory);
 
@@ -28,14 +28,12 @@ vector<vector<Mat>> FileManager::loadStereoImages(){
 			QString fileName = dirIte.fileName();
 			QStringList qsl = fileName.split("Color-");
 			if (qsl.size() == 2){
-				Mat m = imread(dirIte.path().toStdString());
-				colorVector.push_back(m);
+				colorVector.push_back(dirIte.filePath());
 			}
 			else{
 				qsl = fileName.split("Infrared-");
 				if (qsl.size() == 2){
-					Mat m = imread(dirIte.path().toStdString(), CV_LOAD_IMAGE_GRAYSCALE);
-					infraredVector.push_back(m);
+					infraredVector.push_back(dirIte.filePath());
 				}
 			}
 			dirIte.next();
