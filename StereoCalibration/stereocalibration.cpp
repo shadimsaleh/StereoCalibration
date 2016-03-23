@@ -5,6 +5,8 @@ StereoCalibration::StereoCalibration(QWidget *parent): QMainWindow(parent)
 	ui.setupUi(this);
 
 	connect(ui.pushButtonLoadImages, SIGNAL(clicked()), SLOT(onPushButtonLoadImagesClicked()));
+
+	readParameters();
 }
 
 StereoCalibration::~StereoCalibration()
@@ -36,10 +38,8 @@ void StereoCalibration::displayFrame(int indice){
 	}
 }
 
-void StereoCalibration::onPushButtonLoadImagesClicked(){
-	FileManager fm = FileManager();
-
-	stereoImagesPath = fm.loadStereoImages();
+void StereoCalibration::loadImagePathAndDisplayFirstFrame(vector<vector<QString>> v){
+	stereoImagesPath = v;
 
 	if (stereoImagesPath.size() != 2){
 		ui.textBrowserLog->append("Can't load image, check your name's images (Color-number) and (Infrared-number)");
@@ -52,19 +52,42 @@ void StereoCalibration::onPushButtonLoadImagesClicked(){
 	}
 }
 
-void StereoCalibration::readParameters(){
+void StereoCalibration::onPushButtonLoadImagesClicked(){
+	FileManager fm = FileManager();
+	loadImagePathAndDisplayFirstFrame(fm.loadStereoImages());
+}
 
+void StereoCalibration::readParameters(){
+	ParametersLoader pl = ParametersLoader();
+	stereoImagesPath = pl.getImagesPath();
+	loadImagePathAndDisplayFirstFrame(stereoImagesPath);
 }
 
 void StereoCalibration::saveParameters(){
 	QString dataToSave = "";
-
-	//Enregistrement des chemins des fichiers
 	Xml xml("StereoCalibration");
+	
 
-	xml.openBalise("firstVecotr");
+	if (stereoImagesPath.size() == 2){
+		//Enregistrement des chemins des fichiers
+		
+		
+		if (stereoImagesPath.at(0).size() == stereoImagesPath.at(1).size()){
+			xml.openBalise("firstVecotr");
+			for (int i = 0; i < stereoImagesPath.at(0).size(); i++){
+				xml.addElement("Path", stereoImagesPath.at(0).at(i).toStdString());
+			}
+			xml.closeBalise();
 
-	xml.closeBalise();
+			xml.openBalise("secondVector");
+			for (int i = 0; i < stereoImagesPath.at(0).size(); i++){
+				xml.addElement("Path", stereoImagesPath.at(1).at(i).toStdString());
+			}
+			xml.closeBalise();
+		}
+	}
+	
+	
 }
 
 

@@ -159,6 +159,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ParametersLoader.cpp" />
     <ClCompile Include="stereocalibration.cpp" />
     <ClCompile Include="Xml.cpp" />
   </ItemGroup>
@@ -205,6 +206,7 @@
   <ItemGroup>
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="GeneratedFiles\ui_stereocalibration.h" />
+    <ClInclude Include="ParametersLoader.h" />
     <ClInclude Include="Xml.h" />
   </ItemGroup>
   <ItemGroup>

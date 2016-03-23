@@ -46,3 +46,4 @@ vector<vector<QString>> FileManager::loadStereoImages(){
 	}
 	return vecToReturn;
 }
+

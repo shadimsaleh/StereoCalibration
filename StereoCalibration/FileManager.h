@@ -5,7 +5,9 @@
 #include <qfiledialog.h>
 #include <vector>
 #include <qdiriterator.h>
-
+#include <string>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -16,6 +18,8 @@ public:
 	FileManager();
 	~FileManager();
 	vector<vector<QString>> loadStereoImages();
+	vector<vector<QString>> loadStereoImagesFromParameters(string nameOfFile);
+	
 };
 
 #endif FILEMANAGER_H

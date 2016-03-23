@@ -5,6 +5,7 @@
 #include "ui_stereocalibration.h"
 #include "FileManager.h"
 #include "Xml.h"
+#include "ParametersLoader.h"
 
 #include <opencv2\opencv.hpp>
 
@@ -19,6 +20,7 @@ public:
 	StereoCalibration(QWidget *parent = 0);
 	~StereoCalibration();
 	void displayFrame(int indice);
+	void loadImagePathAndDisplayFirstFrame(vector<vector<QString>> v);
 	void readParameters();
 	void saveParameters();
 	

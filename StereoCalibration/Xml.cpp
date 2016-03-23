@@ -6,9 +6,11 @@ Xml::Xml()
 }
 
 Xml::Xml(string nameOfFile){
+
 	string name = nameOfFile + "Parameters" + ".xml";
 
 	this->nameOfFile = nameOfFile;
+	
 	this->fichier = ofstream(name, ios::out | ios::trunc);
 
 	if (fichier) 
