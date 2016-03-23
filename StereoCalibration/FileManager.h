@@ -17,8 +17,7 @@ class FileManager
 public:
 	FileManager();
 	~FileManager();
-	vector<vector<QString>> loadStereoImages();
-	vector<vector<QString>> loadStereoImagesFromParameters(string nameOfFile);
+	vector<QString> loadStereoImages();
 	
 };
 

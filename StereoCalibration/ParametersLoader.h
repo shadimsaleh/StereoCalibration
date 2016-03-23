@@ -7,6 +7,7 @@
 #include <string.h>
 #include <qstringlist.h>
 #include <qmessagebox.h>
+#include "Pattern.h"
 
 using namespace std;
 
@@ -16,10 +17,12 @@ class ParametersLoader
 public:
 	ParametersLoader();
 	~ParametersLoader();
-	vector<vector<QString>> getImagesPath();
+	vector<QString> getImagesPath();
+	Pattern getPattern();
 
 private:
 	QString fileName;
+	QString FileContent;
 };
 
 #endif PARAMETERSLOADER_H
