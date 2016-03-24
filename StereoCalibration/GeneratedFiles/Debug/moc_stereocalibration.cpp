@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_StereoCalibration_t {
-    QByteArrayData data[7];
-    char stringdata[152];
+    QByteArrayData data[9];
+    char stringdata[219];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,16 +30,21 @@ struct qt_meta_stringdata_StereoCalibration_t {
 static const qt_meta_stringdata_StereoCalibration_t qt_meta_stringdata_StereoCalibration = {
     {
 QT_MOC_LITERAL(0, 0, 17), // "StereoCalibration"
-QT_MOC_LITERAL(1, 18, 29), // "onPushButtonLoadImagesClicked"
-QT_MOC_LITERAL(2, 48, 0), // ""
-QT_MOC_LITERAL(3, 49, 28), // "onPushButtonNextFrameClicked"
-QT_MOC_LITERAL(4, 78, 33), // "onPushButtonStartDetectionCli..."
-QT_MOC_LITERAL(5, 112, 20), // "patternParametersMaj"
-QT_MOC_LITERAL(6, 133, 18) // "pointDetectionAuto"
+QT_MOC_LITERAL(1, 18, 36), // "onComputeIntrinsicsParameters..."
+QT_MOC_LITERAL(2, 55, 0), // ""
+QT_MOC_LITERAL(3, 56, 29), // "onPushButtonLoadImagesClicked"
+QT_MOC_LITERAL(4, 86, 28), // "onPushButtonNextFrameClicked"
+QT_MOC_LITERAL(5, 115, 29), // "onPushStartCalibrationClicked"
+QT_MOC_LITERAL(6, 145, 33), // "onPushButtonStartDetectionCli..."
+QT_MOC_LITERAL(7, 179, 20), // "patternParametersMaj"
+QT_MOC_LITERAL(8, 200, 18) // "pointDetectionAuto"
 
     },
-    "StereoCalibration\0onPushButtonLoadImagesClicked\0"
-    "\0onPushButtonNextFrameClicked\0"
+    "StereoCalibration\0"
+    "onComputeIntrinsicsParametersChanged\0"
+    "\0onPushButtonLoadImagesClicked\0"
+    "onPushButtonNextFrameClicked\0"
+    "onPushStartCalibrationClicked\0"
     "onPushButtonStartDetectionClicked\0"
     "patternParametersMaj\0pointDetectionAuto"
 };
@@ -51,7 +56,7 @@ static const uint qt_meta_data_StereoCalibration[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -59,13 +64,17 @@ static const uint qt_meta_data_StereoCalibration[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x0a /* Public */,
-       3,    0,   40,    2, 0x0a /* Public */,
-       4,    0,   41,    2, 0x0a /* Public */,
-       5,    0,   42,    2, 0x0a /* Public */,
-       6,    0,   43,    2, 0x0a /* Public */,
+       1,    0,   49,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x0a /* Public */,
+       4,    0,   51,    2, 0x0a /* Public */,
+       5,    0,   52,    2, 0x0a /* Public */,
+       6,    0,   53,    2, 0x0a /* Public */,
+       7,    0,   54,    2, 0x0a /* Public */,
+       8,    0,   55,    2, 0x0a /* Public */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -80,11 +89,13 @@ void StereoCalibration::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
     if (_c == QMetaObject::InvokeMetaMethod) {
         StereoCalibration *_t = static_cast<StereoCalibration *>(_o);
         switch (_id) {
-        case 0: _t->onPushButtonLoadImagesClicked(); break;
-        case 1: _t->onPushButtonNextFrameClicked(); break;
-        case 2: _t->onPushButtonStartDetectionClicked(); break;
-        case 3: _t->patternParametersMaj(); break;
-        case 4: _t->pointDetectionAuto(); break;
+        case 0: _t->onComputeIntrinsicsParametersChanged(); break;
+        case 1: _t->onPushButtonLoadImagesClicked(); break;
+        case 2: _t->onPushButtonNextFrameClicked(); break;
+        case 3: _t->onPushStartCalibrationClicked(); break;
+        case 4: _t->onPushButtonStartDetectionClicked(); break;
+        case 5: _t->patternParametersMaj(); break;
+        case 6: _t->pointDetectionAuto(); break;
         default: ;
         }
     }
@@ -116,13 +127,13 @@ int StereoCalibration::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }

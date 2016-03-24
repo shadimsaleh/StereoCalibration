@@ -27,8 +27,11 @@ public:
 	
 
 public slots:
+	void onComputeIntrinsicsParametersChanged();
 	void onPushButtonLoadImagesClicked();
 	void onPushButtonNextFrameClicked();
+
+	void onPushStartCalibrationClicked();
 	void onPushButtonStartDetectionClicked();
 
 	void patternParametersMaj();
